@@ -1,0 +1,20 @@
+class Solution {
+    public void merge(int[] arr1, int m, int[] arr2, int n) {
+        int left = m - 1; 
+        int right = n - 1; 
+        int index = m + n - 1; 
+
+        while (left >= 0 && right >= 0) {
+            if (arr1[left] > arr2[right]) {
+                arr1[index--] = arr1[left--];
+            } else {
+                arr1[index--] = arr2[right--];
+            }
+        }
+
+        while (right >= 0) {
+            arr1[index--] = arr2[right--];
+        }
+        
+    }
+}
